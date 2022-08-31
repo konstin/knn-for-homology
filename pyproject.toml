@@ -1,0 +1,34 @@
+[tool.poetry]
+name = "seqvec_search"
+version = "0.1.0"
+description = "More Sensitive Protein Homology Search by Combining Alignment and Nearest Neighbor Search"
+authors = ["konstin <konstin@mailbox.org>"]
+
+[tool.poetry.dependencies]
+python = ">=3.8"
+numpy = "^1.18.2"
+pandas = "^1.4.0"
+matplotlib = "^3.2.1"
+argparse-dataclass = "^0.2.0"
+requests = "^2.23.0"
+tqdm = "^4.45.0"
+tabulate = "^0.8.7"
+tables = "^3.6.1"
+scikit-learn = "^1.0.2"
+faiss-cpu = "^1.6.4"
+python-ternary = "^1.0.8"
+seaborn = "^0.11.1"
+h5py = "^3.2.1"
+humanize = "^3.11.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.0.0"
+black = "^22.1.0"
+
+[tool.poetry.scripts]
+seqvec_search = "seqvec_search.main:main"
+seqvec_search_create_index = "seqvec_search.create_index:main"
+
+[build-system]
+requires = ["poetry~=1.0.0"]
+build-backend = "poetry.masonry.api"

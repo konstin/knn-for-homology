@@ -1,0 +1,33 @@
+name: Run tests
+
+on: [ push, pull_request ]
+
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [ 3.8 ]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v1
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install openblas and openmp
+        run: sudo apt-get install libopenblas-dev libomp-dev libomp5
+      - name: Install MMseqs2
+        run: curl -L https://github.com/soedinglab/MMseqs2/releases/download/12-113e3/MMseqs2-Linux-AVX2.tar.gz | tar xz
+      - name: Install poetry
+        run: |
+          curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
+          $HOME/.poetry/bin/poetry config virtualenvs.in-project true
+      - uses: actions/cache@v1
+        with:
+          path: .venv
+          key: poetry-${{ runner.os }}-${{ matrix.python-version }}-${{ hashFiles('poetry.lock') }}
+      - name: Install depencies
+        run: $HOME/.poetry/bin/poetry install
+      - name: Run pytest
+        run: .venv/bin/pytest
