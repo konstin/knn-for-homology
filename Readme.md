@@ -2,6 +2,8 @@
 
 Konstantin Schütze, Michael Heinzinger, Martin Steinegger, Burkhard Rost
 
+Now published in [Frontiers in Bioinformatics](https://www.frontiersin.org/articles/10.3389/fbinf.2022.1033775/full)!
+
 This repository contains the code that generates the datasets, runs the benchmarks and plots all figures. It also contains the each figure's and table's raw data (in `more_sensitive/*/*.h5`).
 
 ## Abstract
