@@ -19,6 +19,7 @@ pip install git+https://github.com/konstin/knn-for-homology
 poetry install
 pip install bio_embeddings[transformers]
 curl -L https://github.com/soedinglab/MMseqs2/releases/download/13-45111/mmseqs-linux-avx2.tar.gz | tar xz
+poetry shell
 ```
 
 # Reproducing
