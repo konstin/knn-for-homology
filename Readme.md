@@ -15,7 +15,7 @@ Since 1992, all state-of-the-art (SOTA) methods for fast and sensitive identific
 Prerequisites: Install python 3.8, poetry 1.1, MMseqs2 13, openblas and openmp on a linux machine (Ubuntu 20.04 is tested). Make sure poetry and mmseqs are in `PATH`
 
 ```shell
-pip install git+https://github.com/konstin/knn-for-homology
+git clone https://github.com/konstin/knn-for-homology
 poetry install
 pip install bio_embeddings[transformers]
 curl -L https://github.com/soedinglab/MMseqs2/releases/download/13-45111/mmseqs-linux-avx2.tar.gz | tar xz
